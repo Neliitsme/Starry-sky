@@ -4,7 +4,7 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 
 const WIDTH = 1000;
 const HEIGHT = 500;
-const BORDER_RADIUS = 0;
+const BORDER_RADIUS = 14;
 const STARS_AMOUNT = 800;
 
 // Colors taken from here: http://www.vendian.org/mncharity/dir3/starcolor/
