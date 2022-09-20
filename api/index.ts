@@ -2,10 +2,10 @@ const Two = require('two.js');
 import { createCanvas, Image } from 'canvas';
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
-const WIDTH = 440;
-const HEIGHT = 200;
-const BORDER_RADIUS = 7;
-const STARS_AMOUNT = 500;
+const WIDTH = 1000;
+const HEIGHT = 500;
+const BORDER_RADIUS = 0;
+const STARS_AMOUNT = 800;
 
 // Colors taken from here: http://www.vendian.org/mncharity/dir3/starcolor/
 const STAR_COLORS = {
@@ -21,7 +21,7 @@ const SKY_COLOR = '#2C3E50';
 
 export default (req: VercelRequest, res: VercelResponse) => {
   req.query;
-  res.setHeader('Content-Type', 'image/svg+xml');
+  res.setHeader('Content-Type', 'image/png');
   res.setHeader('Cache-Control', 'public, max-age=14400');
   res
     .status(200)
@@ -35,7 +35,7 @@ function getStarrySky(
   stars_amount: number,
   sky_color: string,
 ): Buffer {
-  const canvas = createCanvas(width, height, 'svg');
+  const canvas = createCanvas(width, height);
   Two.Utils.shim(canvas, Image);
 
   let params = {
@@ -61,7 +61,7 @@ function getStarrySky(
     let randColor = getRandomColor();
     let alpha = 1;
 
-    let circle = two.makeCircle(randWidth, randHeight, getRandomNumber(1, 3));
+    let circle = two.makeCircle(randWidth, randHeight, getRandomNumber(1, 3)*2);
     circle.fill = `rgba(${randColor[0]}, ${randColor[1]}, ${randColor[2]}, ${alpha})`;
     circle.noStroke();
     circle.scale = 1;
