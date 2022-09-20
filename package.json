@@ -4,7 +4,7 @@
   "description": "An app for generating a starry sky for your readme file, just because numbers are not enough.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "vercel dev"
   },
   "author": "Nelite",
   "license": "ISC",
