@@ -22,6 +22,7 @@ const SKY_COLOR = '#2C3E50';
 export default (req: VercelRequest, res: VercelResponse) => {
   req.query;
   res.setHeader('Content-Type', 'image/svg+xml');
+  res.setHeader('Cache-Control', 'public, max-age=14400');
   res
     .status(200)
     .send(getStarrySky(WIDTH, HEIGHT, BORDER_RADIUS, STARS_AMOUNT, SKY_COLOR));
